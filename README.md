@@ -10,6 +10,10 @@ Provides a library of additional template tags, 3rd-party libraries, and functio
 
 # Changelog:
 
+## 1.2.0
+- Update to jQuery 3.5.1
+- Remove support for IE 6 and below
+
 ## 1.1.2
 - Updated `Mindshare_API_Plugin_Updater` class to current version of EDD Plugin Updater
 

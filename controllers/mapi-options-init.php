@@ -116,17 +116,6 @@ if (!class_exists('mapi_options')) :
 			if (@$this->options[ 'load_tinysort_js' ]) {
 				add_action('wp_head', 'mapi_load_tinysort', 100);
 			}
-			if (@$this->options[ 'load_ieupdate' ] === TRUE || mapi_is_true(@$this->options[ 'load_ieupdate' ][ 'enabled' ])) {
-				if (@empty($this->options[ 'load_ieupdate_version_txt' ])) {
-					$this->options[ 'load_ieupdate_version_txt' ] = 10;
-					update_option(MAPI_OPTIONS, $this->options);
-				}
-				if (empty($this->options[ 'load_ieupdate' ][ 'load_ieupdate_version_txt' ])) {
-					$this->options[ 'load_ieupdate' ][ 'load_ieupdate_version_txt' ] = 10;
-					update_option(MAPI_OPTIONS, $this->options);
-				}
-				add_action('wp_head', 'mapi_ie_warning');
-			}
 
 			if (@$this->options[ 'break_frames' ]) {
 				add_action('wp_head', 'mapi_break_frames', 1);

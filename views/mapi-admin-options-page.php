@@ -205,24 +205,6 @@ $mapi_options->CloseTab();
 $mapi_options->OpenTab(sanitize_title($misc_options_label));
 $mapi_options->Title('Miscellaneous Settings');
 
-$condition_load_ie[] = $mapi_options->addText(
-	'load_ieupdate_version_txt',
-	array(
-		'name' => 'Minimum supported version of Internet Explorer',
-		'std'  => 11,
-	),
-	FALSE
-);
-$mapi_options->addCondition(
-	'load_ieupdate',
-	array(
-		'name'   => 'Show Internet Explorer update nag',
-		'desc'   => '(visitors with IE versions lower than number above will be politely alerted to update)',
-		'fields' => $condition_load_ie,
-		'std'    => FALSE,
-	)
-);
-
 $mapi_options->addCheckbox(
 	'break_frames',
 	array(

@@ -559,28 +559,6 @@ function mapi_remove_recent_comments_style() {
 }
 
 /**
- * Gives an alert to users of older version of IE that they should update their browser.
- */
-function mapi_ie_warning() {
-	$load_ieupdate = mapi_get_option('load_ieupdate');
-	if (!empty($load_ieupdate[ 'load_ieupdate_version_txt' ])) {
-		mapi_toggle_html_compression();
-		?>
-		<!--[if lt IE <?php echo $load_ieupdate['load_ieupdate_version_txt']; ?>]>
-		<script type="text/javascript">
-			var IE6UPDATE_OPTIONS = {
-				icons_path: "<?php echo plugins_url('lib/ie6update/images/', dirname(__FILE__)); ?>",
-				message: "Internet Explorer is missing updates required to properly view this website. Click here to update your browser... "
-			}
-		</script>
-		<script type="text/javascript" src="<?php echo plugins_url('lib/ie6update/ie6update.js', dirname(__FILE__)); ?>"></script>
-		<![endif]-->
-		<?php
-		mapi_toggle_html_compression();
-	}
-}
-
-/**
  * Retrieve an option from the Theme API options array.
  *
  * @param null $name
@@ -1432,11 +1410,11 @@ function mapi_is_reserved_ipv4($ip) {
 	$reserved_ips = array(
 		// not an exhaustive list
 		'167772160'  => 184549375, // 10.0.0.0 - 10.255.255.255
-		'3232235520' => 3232301055, // 192.168.0.0 - 192.168.255.255 
-		'2130706432' => 2147483647, // 127.0.0.0 - 127.255.255.255 
-		'2851995648' => 2852061183, // 169.254.0.0 - 169.254.255.255 
-		'2886729728' => 2887778303, // 172.16.0.0 - 172.31.255.255 
-		'3758096384' => 4026531839, // 224.0.0.0 - 239.255.255.255 
+		'3232235520' => 3232301055, // 192.168.0.0 - 192.168.255.255
+		'2130706432' => 2147483647, // 127.0.0.0 - 127.255.255.255
+		'2851995648' => 2852061183, // 169.254.0.0 - 169.254.255.255
+		'2886729728' => 2887778303, // 172.16.0.0 - 172.31.255.255
+		'3758096384' => 4026531839, // 224.0.0.0 - 239.255.255.255
 	);
 	$ip_long = sprintf('%u', ip2long($ip));
 	foreach ($reserved_ips as $ip_start => $ip_end) {
